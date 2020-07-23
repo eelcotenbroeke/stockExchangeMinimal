@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ITC Template</title>
+    <meta name="description" content="StockExchange" />
+    <meta name="author" content="Eelco ten Broeke" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/marquee.css" />
+  </head>
+  <body>
+    <div class="marquee" id="marquee"></div>
+    <div class="container">
+      <h1 class="title">Search Nasdaq Stocks</h1>
+      <div class="row">
+        <div class="col-12 d-flex">
+          <div id="form"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div
+            class="spinner-border stockSearchSpinner d-none"
+            role="status"
+            id="spinnerHome"
+          ></div>
+          <div class="stock-results d-flex flex-column" id="results"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/Marquee.js"></script>
+    <script src="./js/Form.js"></script>
+    <script src="./js/Results.js"></script>
+    <script>
+      (function () {
+        const headerMarquee = new Marquee(document.getElementById("marquee"));
+        headerMarquee.getMarqueeData();
+        const searchInstance = new Form(document.getElementById("form"));
+        const searchResults = new Results(document.getElementById("results"));
+        searchInstance.fetchData((companies) => {
+          console.log(companies);
+          searchResults.fetchCompanyData(companies);
+        });
+      })();
+    </script>
+  </body>
+</html>

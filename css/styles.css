@@ -1,0 +1,35 @@
+.title {
+  margin-top: 25px;
+}
+
+.stock-form {
+  width: 100%;
+}
+
+.stock-search-button {
+  height: fit-content;
+}
+
+.stockSearchSpinner {
+  height: 100px;
+  width: 100px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  width: 300px;
+  float: left;
+}
+
+.changes {
+  font-weight: bold;
+}
