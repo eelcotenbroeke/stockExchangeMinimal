@@ -44,7 +44,6 @@
         const searchInstance = new Form(document.getElementById("form"));
         const searchResults = new Results(document.getElementById("results"));
         searchInstance.fetchData((companies) => {
-          console.log(companies);
           searchResults.fetchCompanyData(companies);
         });
       })();

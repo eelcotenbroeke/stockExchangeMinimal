@@ -5,7 +5,6 @@ class Results {
   }
 
   async fetchCompanyData(basicData) {
-    console.log(basicData);
     this.deleteList();
     for (let i = 0; i < basicData.length; i++) {
       let enrichedURL = `https://financialmodelingprep.com/api/v3/profile/${basicData[i].symbol}?apikey=ed93f3e229380c530b7a0e7663f86b99`;
@@ -13,8 +12,6 @@ class Results {
       let data = await response.json();
       basicData[i].newData = data;
       this.buildListResult(data);
-      // console.log(basicData[i]);
-      // console.log(basicData[i].newData);
     }
     this.companies = basicData;
   }
@@ -73,27 +70,28 @@ class Results {
     this.markText(name, symbol, symbolBox, anchorTag);
   }
 
-  addToCompareList() {
-    let buttonGroup = document.createElement("div");
-    buttonGroup.classList.add("btn-group");
-    buttonGroup.setAttribute("id", "buttonGroup");
-    buttonGroup.setAttribute("role", "group");
+  //add to compare lits is not finished yet//
+  // addToCompareList() {
+  //   let buttonGroup = document.createElement("div");
+  //   buttonGroup.classList.add("btn-group");
+  //   buttonGroup.setAttribute("id", "buttonGroup");
+  //   buttonGroup.setAttribute("role", "group");
 
-    let symbolButton = document.createElement("button");
-    symbolButton.classList.add("btn", "btn-secondary", "symbolButton");
-    symbolButton.setAttribute("id", "symbolButton");
-    symbolButton.innerText = symbol;
+  //   let symbolButton = document.createElement("button");
+  //   symbolButton.classList.add("btn", "btn-secondary", "symbolButton");
+  //   symbolButton.setAttribute("id", "symbolButton");
+  //   symbolButton.innerText = symbol;
 
-    let removeButton = document.createElement("button");
-    removeButton.classList.add("btn", "btn-secondary", "removeButton");
-    removeButton.setAttribute("id", "removeButton");
-    removeButton.innerText = "X";
+  //   let removeButton = document.createElement("button");
+  //   removeButton.classList.add("btn", "btn-secondary", "removeButton");
+  //   removeButton.setAttribute("id", "removeButton");
+  //   removeButton.innerText = "X";
 
-    buttonGroup.append(symbolButton, removeButton);
+  //   buttonGroup.append(symbolButton, removeButton);
 
-    let inputfield = document.getElementById("stockSymbolInput");
-    inputfield.append(this.buttonGroup);
-  }
+  //   let inputfield = document.getElementById("stockSymbolInput");
+  //   inputfield.append(this.buttonGroup);
+  // }
 
   markText(name, symbol, symbolBox, anchorTag) {
     let stringToBeSearched = document.getElementById("stockSymbolInput").value;
